@@ -26,3 +26,5 @@ docker run -it whatsapp-history-analyis
 * On startup the whatsapp chat history file is loaded
 
 ## Assumptions
+
+* All word comparisons are case incensitive that is `ok = OK = Ok = oK`
