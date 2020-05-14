@@ -1,4 +1,5 @@
 import utils
+import re
 from emoji import EMOJI_UNICODE
 
 ANGRY_FACE_EMOJI = "\U0001F621"
@@ -18,11 +19,18 @@ def sent_profanities_count(messages, name, profanities):
     return count
 
 def sent_emojis_count(messages, name):
+    separator = '\n'
     count = 0
+    for element in separator.join(messages[name]):
+        if chr(ord(element)) in EMOJI_UNICODE.values():
+            count += 1
     return count
 
 def received_emojis_count(messages, name):
     count = 0
+    for a_name in messages:
+        if name != a_name: 
+            count += sent_emojis_count(messages, a_name)
     return count
 
 def received_angry_face_emoji_count(messages, name):
@@ -52,7 +60,7 @@ if __name__ == "__main__":
     # Creatte a dictionary of messages from the logs, 
     # dictionary keys are usernames and values are the list of messages sent by the given user
     messages = utils.parse(history_logs)
-    username = input("Enter a username: ")
+    username = input("Enter a username: ").lower()
     
     # Total number of messages sent.
     print("Total number of messages sent {}.".format(sent_messages_count(messages, username)))

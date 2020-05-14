@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import re 
 from collections import defaultdict
 
@@ -15,8 +16,8 @@ def parse(history_log):
         match = re.search(user_message_pattern, log)
         if match is not None:
             # messages.append([match.group(3), match.group(4)])
-            messages[match.group(3)].append(match.group(4))
-            previous_key = match.group(3)
+            messages[match.group(3).lower()].append(match.group(4))
+            previous_key = match.group(3).lower()
         elif not re.search(system_message_pattern, log) :
             # messages[-1][-1] += log
             messages[previous_key][-1] += log
