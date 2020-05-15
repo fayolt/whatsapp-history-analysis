@@ -1,6 +1,6 @@
 import utils
 import re
-from emoji import EMOJI_UNICODE
+from emoji import UNICODE_EMOJI
 
 ANGRY_FACE_EMOJI = "\U0001F621"
 CHAT_HISTORY_FILEPATH = "data/history.txt"
@@ -19,11 +19,11 @@ def sent_profanities_count(messages, name, profanities):
     return count
 
 def sent_emojis_count(messages, name):
-    separator = '\n'
     count = 0
-    for element in separator.join(messages[name]):
-        if chr(ord(element)) in EMOJI_UNICODE.values():
-            count += 1
+    separator = '\n'
+    message_string = separator.join(messages[name])
+    for emoji in UNICODE_EMOJI:
+        count += message_string.count(emoji)
     return count
 
 def received_emojis_count(messages, name):
