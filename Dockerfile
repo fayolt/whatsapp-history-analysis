@@ -4,4 +4,5 @@ WORKDIR /app
 COPY ./requirements.txt /app
 RUN pip install -r requirements.txt
 COPY . /app
-CMD [ "python", "-m", "history_analysis" ]
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT /app/entrypoint.sh
