@@ -16,8 +16,8 @@ def parse(history_log):
     for log in history_log:
         match = re.search(user_message_pattern, log, re.IGNORECASE)
         if match is not None:
-            messages[match.group(3).lower()].append(match.group(4))
+            messages[match.group(3).lower()].append(match.group(4).strip())
             previous_key = match.group(3).lower()
         elif not re.search(system_message_pattern, log, re.IGNORECASE) :
-            messages[previous_key][-1] += log
+            messages[previous_key][-1] += "\n" + log.strip()
     return messages
