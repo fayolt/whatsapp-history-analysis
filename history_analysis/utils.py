@@ -1,11 +1,12 @@
-# -*- coding: UTF-8 -*-
 import re 
 from collections import defaultdict
+from pathlib import Path
 
 def load_file(file_name):
-    history_file = open(file_name, encoding='utf8')
-    history_list = history_file.readlines()
-    return history_list
+    path = Path(__file__).parent / file_name
+    with path.open(encoding='utf-8') as history_log_file:
+        history_log_list = history_log_file.readlines()
+    return history_log_list
 
 def parse(history_log):
     user_message_pattern = r"^(\d+\/\d+\/\d{2}, \d+:\d{2}( am| pm)?) - (.*): (.+)$"

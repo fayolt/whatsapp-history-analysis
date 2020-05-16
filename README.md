@@ -18,7 +18,7 @@ docker build -t whatsapp-history-analyis .
 * Start the application 
 
 ```sh
-docker run -it whatsapp-history-analyis
+docker run -it --rm whatsapp-history-analyis
 ```
 
 ## Functionning
