@@ -1,4 +1,5 @@
 TEST_HISTORY_FILE = './test/data/history.txt'
+READ_DATA = "21/09/19, 14:04 - John: Hello\n21/09/2019, 16:12 - Jane: Hi"
 TEST_HISTORY_LOGS = [
     "5/12/20, 19:07 - Messages to this chat and calls are now secured with end-to-end encryption. Tap for more info.",
     "21/09/19, 14:04 - John: Hello! Do you still hate me?",
