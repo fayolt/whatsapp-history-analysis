@@ -1,6 +1,6 @@
 from unittest import TestCase, mock
 from history_analysis import utils, history_analysis
-from . import TEST_HISTORY_FILE, TEST_HISTORY_LOGS, PROFANITIES
+from . import TEST_HISTORY_LOGS, PROFANITIES
 
 class TestHistoryAnalysis(TestCase):
     def setUp(self):

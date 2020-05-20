@@ -13,9 +13,9 @@ class TestUtils(TestCase):
         }
     
     @mock.patch("history_analysis.utils.open", new_callable=mock.mock_open)
-    def test_load_unexisting_file(self, mock_history_file):
+    def test_load_unexisting_file(self, mock_open_history_file):
         utils.load_file(TEST_HISTORY_FILE)
-        mock_history_file.assert_not_called
+        mock_open_history_file.assert_not_called
     
     @mock.patch("history_analysis.utils.open", new_callable=mock.mock_open, read_data=READ_DATA)
     def test_load_existing_file(self, mock_history_file):

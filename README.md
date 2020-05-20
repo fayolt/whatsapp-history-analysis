@@ -4,7 +4,7 @@
 
 * Docker
 
-## To start the backend app
+## To start the app
 
 * Add the chat history file
 
